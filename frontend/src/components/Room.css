@@ -1,0 +1,369 @@
+.room {
+  min-height: 100vh;
+  padding-bottom: 60px;
+}
+
+.room-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.room-header-section {
+  padding: 40px 0;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.room-header-section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+}
+
+.room-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.room-name {
+  font-size: 2.5rem;
+  color: white;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.room-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.room-theme {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.room-timer-big {
+  text-align: right;
+}
+
+.timer-label {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0.25rem;
+}
+
+.timer-value {
+  font-family: 'Orbitron', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+}
+
+.room-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+}
+
+.room-stats-bar .stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.room-stats-bar .stat-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 0.25rem;
+}
+
+.room-stats-bar .stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: white;
+}
+
+.room-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.betting-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bet-result {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  animation: slideDown 0.5s ease;
+}
+
+.bet-result.win {
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.15), rgba(0, 212, 255, 0.15));
+  border: 2px solid var(--neon-green);
+}
+
+.bet-result.loss {
+  background: linear-gradient(135deg, rgba(255, 51, 102, 0.15), rgba(255, 107, 53, 0.15));
+  border: 2px solid var(--danger);
+}
+
+.result-icon {
+  font-size: 3rem;
+}
+
+.result-text {
+  flex: 1;
+}
+
+.result-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.result-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: 'Orbitron', monospace;
+}
+
+.bet-result.win .result-amount {
+  color: var(--neon-green);
+}
+
+.bet-result.loss .result-amount {
+  color: var(--danger);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.quick-amounts {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.quick-amount-btn {
+  flex: 1;
+  min-width: 60px;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.quick-amount-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--neon-cyan);
+  color: var(--neon-cyan);
+}
+
+.quick-amount-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.choice-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.choice-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', monospace;
+  color: var(--text-secondary);
+}
+
+.choice-btn:hover:not(:disabled) {
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.choice-btn.active {
+  border-width: 3px;
+}
+
+.choice-btn.active.heads {
+  border-color: var(--neon-green);
+  background: rgba(0, 255, 136, 0.1);
+  color: var(--neon-green);
+}
+
+.choice-btn.active.tails {
+  border-color: var(--neon-purple);
+  background: rgba(184, 48, 255, 0.1);
+  color: var(--neon-purple);
+}
+
+.choice-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.choice-icon {
+  font-size: 3rem;
+}
+
+.choice-label {
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.bets-history {
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.bets-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.bet-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.bet-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.bet-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.bet-username {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.bet-meta {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.bet-outcome {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  font-family: 'Orbitron', monospace;
+}
+
+.bet-outcome.win {
+  color: var(--neon-green);
+}
+
+.bet-outcome.loss {
+  color: var(--danger);
+}
+
+.outcome-icon {
+  font-size: 1.2rem;
+}
+
+.cta-section {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.cta-card {
+  text-align: center;
+  border: 2px solid var(--neon-purple);
+}
+
+@media (max-width: 968px) {
+  .room-content {
+    grid-template-columns: 1fr;
+  }
+
+  .room-header-content {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .room-timer-big {
+    text-align: left;
+  }
+
+  .room-name {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .choice-buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .room-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
