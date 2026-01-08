@@ -9,7 +9,12 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///casino.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'your-secret-key-change-in-production'
 
-CORS(app)
+# CORS для production и development
+CORS(app, origins=[
+    'https://kisa134.github.io',  # GitHub Pages
+    'http://localhost:5173',      # Local development
+    'http://localhost:5000'       # Local backend
+])
 db.init_app(app)
 
 # Game constants
