@@ -9,7 +9,7 @@ function App() {
   const userId = localStorage.getItem('user_id');
   
   return (
-    <Router>
+    <Router basename="/casinofun">
       <div className="App">
         <nav className="navbar">
           <div className="container">
