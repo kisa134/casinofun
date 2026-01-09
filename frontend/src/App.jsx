@@ -3,6 +3,7 @@ import Landing from './components/Landing';
 import Room from './components/Room';
 import HostDashboard from './components/HostDashboard';
 import Leaderboard from './components/Leaderboard';
+import SlotMachine from './components/SlotMachine';
 import './App.css';
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
               </a>
               <div className="nav-links">
                 <a href="/" className="nav-link">Главная</a>
+                <a href="/slots" className="nav-link" style={{color: 'var(--neon-pink)', fontWeight: '700'}}>
+                  🎰 SLOTS
+                </a>
                 <a href="/leaderboard" className="nav-link">🏆 Рейтинг</a>
                 {userId && (
                   <a href={`/host?id=${userId}`} className="nav-link" style={{color: 'var(--neon-green)'}}>
@@ -36,6 +40,7 @@ function App() {
           <Route path="/room/:publicCode" element={<Room />} />
           <Route path="/host" element={<HostDashboard />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
+          <Route path="/slots" element={<SlotMachine />} />
         </Routes>
 
         <footer className="footer">

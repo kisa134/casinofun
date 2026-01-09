@@ -313,3 +313,33 @@
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+/* Glowing button for SLOTS */
+.btn-glow {
+  background: linear-gradient(135deg, #ff006e 0%, #8a2be2 50%, #ff006e 100%) !important;
+  background-size: 200% 100% !important;
+  animation: buttonGlowLanding 2s infinite !important;
+  font-size: 20px !important;
+  padding: 18px 40px !important;
+  font-weight: 900 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 2px !important;
+  box-shadow: 0 10px 40px rgba(255, 0, 110, 0.6) !important;
+  transform: scale(1.1) !important;
+}
+
+@keyframes buttonGlowLanding {
+  0%, 100% {
+    box-shadow: 0 10px 40px rgba(255, 0, 110, 0.6);
+    background-position: 0% 50%;
+  }
+  50% {
+    box-shadow: 0 10px 60px rgba(138, 43, 226, 0.8);
+    background-position: 100% 50%;
+  }
+}
+
+.btn-glow:hover {
+  transform: scale(1.15) translateY(-3px) !important;
+  box-shadow: 0 15px 50px rgba(255, 0, 110, 0.8) !important;
+}

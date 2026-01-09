@@ -120,8 +120,11 @@ function Landing() {
               Это денежная игра для дегенов. Ты можешь поднять — и так же быстро всё слить.
             </p>
             <div className="hero-buttons">
+              <button className="btn btn-primary btn-glow" onClick={() => navigate('/slots')}>
+                🎰 PLAY SLOTS NOW! 🎰
+              </button>
               <button className="btn btn-primary" onClick={() => document.getElementById('create-form').scrollIntoView({ behavior: 'smooth' })}>
-                🎰 Создать комнату
+                🏠 Создать комнату
               </button>
               <button className="btn btn-secondary" onClick={() => document.getElementById('rooms-feed').scrollIntoView({ behavior: 'smooth' })}>
                 👀 Смотреть комнаты
