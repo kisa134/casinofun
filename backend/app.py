@@ -337,10 +337,18 @@ def get_global_stats():
         'total_users': total_users
     })
 
-# Initialize database
+# Initialize database (only create tables if they don't exist)
+import os
 with app.app_context():
-    db.create_all()
-    print("Database initialized!")
+    # Check if database file exists, if not - create tables
+    db_path = app.config['SQLALCHEMY_DATABASE_URI'].replace('sqlite:///', '')
+    if not os.path.exists(db_path):
+        db.create_all()
+        print("Database initialized!")
+    else:
+        # Just ensure connection works
+        db.engine.connect()
+        print("Database connected!")
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000)
