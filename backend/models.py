@@ -23,7 +23,6 @@ class User(db.Model):
     # Relationships
     rooms = db.relationship('Room', backref='owner', lazy=True, foreign_keys='Room.owner_id')
     bets = db.relationship('Bet', backref='player', lazy=True)
-    referred_by = db.relationship('User', remote_side=[id], backref='referrals')
     
     def to_dict(self):
         return {
