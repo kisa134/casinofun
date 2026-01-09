@@ -1,0 +1,24 @@
+From 37d9714a237656a14950843c39392d6c353cf111 Mon Sep 17 00:00:00 2001
+From: Yura <kisa134@github.com>
+Date: Fri, 9 Jan 2026 10:11:38 +0000
+Subject: [PATCH 2/2] Fix database relationship for Render compatibility
+
+---
+ backend/models.py | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/backend/models.py b/backend/models.py
+index 75b0783..5d0b0a5 100644
+--- a/backend/models.py
++++ b/backend/models.py
+@@ -23,7 +23,6 @@ class User(db.Model):
+     # Relationships
+     rooms = db.relationship('Room', backref='owner', lazy=True, foreign_keys='Room.owner_id')
+     bets = db.relationship('Bet', backref='player', lazy=True)
+-    referred_by = db.relationship('User', remote_side=[id], backref='referrals')
+     
+     def to_dict(self):
+         return {
+-- 
+2.43.0
+

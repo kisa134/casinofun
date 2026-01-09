@@ -2,7 +2,7 @@ import axios from 'axios';
 
 // Автоматически определяем URL в зависимости от окружения
 const API_BASE_URL = import.meta.env.PROD 
-  ? 'https://casinofun-api.onrender.com/api'  // Production URL (обнови после деплоя)
+  ? 'https://casinofun.onrender.com/api'  // Production URL from Render
   : '/api';  // Development (через vite proxy)
 
 const api = axios.create({
